@@ -1,75 +1,42 @@
+import React from 'react';
 import './App.css';
-import React, { useState } from 'react';
-// import Tabs from './components/Tabs'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import Register  from './components/Register';
+import Products  from './components/Products'; 
+import Features from './components/Features';
 
-function App() {
-  const [currentTab, setCurrentTab] = useState('tab1');
-
-  const tabList =  [
-    {
-      name: 'tab1',
-      label: 'Home',
-      content: (
-        <div className="tab-content">
-          <h3>Home</h3>
-          <p>This is the tab content of the FIRST tab.  This can be seperated as it's own Component.
-          </p>
-        </div>
-      )
-    },
-    {
-      name: 'tab2',
-      label: 'About',
-      content: (
-        <div className="tab-content">
-          <h3>About</h3>
-          <p>This is the tab content of the SECOND tab.  This can be seperated as it's own Component.
-          </p>
-        </div>
-      )
-    },
-    {
-      name: 'tab3',
-      label: 'Services',
-      content: (
-        <div className="tab-content">
-          <h3>Home</h3>
-          <p>This is the tab content of the THIRD tab.  This can be seperated as it's own Component.
-          </p>
-        </div>
-      )
-    },
-  ]
-
-  return (
-    <div className="App">
-      <h1>Tabs Component with Hooks</h1>
-      <div className="tabs-list">
-        {
-          tabList.map((tab, i) => (
-            <button 
-              key={i}
-              onClick={() => setCurrentTab(tab.name)}
-              className={(tab.name === currentTab ? 'active' : '')}
-              >
-              {tab.label}
-            </button>
-          ))
-        }
-      </div>
-
-      {
-        tabList.map((tab, i) => {
-          if(tab.name === currentTab) {
-            return <div key={i}>{tab.content}</div>
-          } else {
-            return null
-          }
-        })
-      }
-
-    </div>
-  );
+export const RouterTabs = () => {
+    return (
+       <BrowserRouter>
+           <div className="app">
+               <header>
+                 <h1>WebStuff.com</h1>
+                    <nav>
+                        <ul>
+                            <li><Link to="features">Features</Link></li>
+                            <li><Link to="/register">Register</Link></li>
+                            <li><Link to="/products">Products</Link></li>
+                        </ul>
+                    </nav>
+                  </header>
+               <Switch>
+                  <Route path="/Register">
+                    <Register/>
+                  </Route>
+                  <Route path="/Products">
+                    <Products/>
+                  </Route>
+                  <Route path="/Features">
+                    <Features/>
+                  </Route>
+               </Switch>
+           </div>
+       </BrowserRouter>
+    )
 }
 
-export default App;
+    
+
+export default RouterTabs;
+
+
