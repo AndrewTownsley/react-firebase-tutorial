@@ -30,3 +30,7 @@ Pager Structure ===
    2.  Total
    3.  Discount Code
    4.  Shipping Info
+
+   --- Other Features to add ---
+   1.  Reviews
+   2.  Star Ratings

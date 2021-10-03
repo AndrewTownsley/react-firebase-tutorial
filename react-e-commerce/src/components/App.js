@@ -1,8 +1,10 @@
 import React from 'react'
 import '../App.css';
-import { BrowserRouter, Switch, NavLink, Route } from 'react-router-dom'
+import styled from 'styled-components';
+import { BrowserRouter, Switch, NavLink, Route } from 'react-router-dom';
 import Home from './Home.jsx/Home';
-import Cart from './Cart.jsx/Cart'
+import Products from './Products/Products';
+import Cart from './Cart.jsx/Cart';
 
 
 
@@ -10,14 +12,13 @@ import Cart from './Cart.jsx/Cart'
 const App = () => {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route>
-          <Home/>
-        </Route>
-        <Route>
-          <Cart/>
-        </Route>
-      </Switch>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/products" component={Products}/>
+          <Route exact path="/cart" component={Cart}/>
+        </Switch>
+      </div>
     </BrowserRouter>
   )
 }
