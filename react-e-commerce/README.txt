@@ -7,7 +7,7 @@
 
 **************************************************
 
-Pager Structure ===
+Page Structure ===
 
 1. Components
    a. App.js
@@ -34,3 +34,5 @@ Pager Structure ===
    --- Other Features to add ---
    1.  Reviews
    2.  Star Ratings
+   3.  **** ERROR Handling !!! ***
+   4.  *** 404 page !!! ***

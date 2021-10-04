@@ -3,3 +3,8 @@
 * {
   font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.product-listings img {
+  height: 175px;
+  width: 175px;
+}

@@ -10,14 +10,14 @@ const Header = () => {
             <h1>shopmerch.com</h1>
             <nav>
                 <ul>
-                    <li><NavLink to="/">Products</NavLink></li>
+                    <li><NavLink to="/products">Products</NavLink></li>
                     <li><NavLink to="/cart">Shopping Cart</NavLink></li>
                 </ul>
             </nav>
         </div>
         <Switch>
-                <Route exact path="/products" component={Products}/>
                 <Route exact path="/cart" component={Cart}/>
+                <Route path="/" component={Products}/>
             </Switch>
         </BrowserRouter>
     )
