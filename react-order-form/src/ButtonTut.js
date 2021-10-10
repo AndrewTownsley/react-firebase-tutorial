@@ -107,7 +107,7 @@ const TabGroup = () => {
   )
 }
 
-function App() {
+function ButtonTut() {
 
 const clickMe = () => {
   alert('You clicked it')
@@ -140,4 +140,4 @@ const clickMe = () => {
   );
 }
 
-export default App;
+export default ButtonTut;
