@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
 import { db } from './firebase-config';
-import { collection, getDocs, addDoc } from 'firebase/firestore'
+import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore'
 
 
 const App = () => {
@@ -13,6 +13,16 @@ const App = () => {
     const createUser = async (e) => {
         e.preventDefault();
         await addDoc(usersCollectionRef, { name: newName, age: newAge })
+    }
+
+    const deleteUser = () => {
+        
+    }
+
+    const editUserAge = async (id, age) => {
+        const userDoc = doc(db, 'users', id)
+        const newFields = {age: age + 1};
+        await updateDoc(userDoc, newFields)
     }
 
     useEffect(() => {
@@ -44,6 +54,8 @@ const App = () => {
                         <div className="user-card" key={index}>
                             <h3>Name: {user.name}</h3>
                             <h4>Age: {user.age}</h4>
+                            <button onClick={() => editUserAge(user.id, user.age)}>Edit Age</button>
+                            {/* <button onClick={editUser}>Edit</button> */}
                         </div>
                     )
                 }
